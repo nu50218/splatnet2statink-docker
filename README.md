@@ -6,7 +6,9 @@ https://github.com/frozenpandaman/splatnet2statink
 
 ```sh
 $ touch config.txt
-$ docker run -it -v ${PWD}/config.txt:/splatnet2statink/config.txt nu50218/splatnet2statink:latest
+$ docker run -it \
+-v ${PWD}/config.txt:/splatnet2statink/config.txt \
+nu50218/splatnet2statink:latest
 ```
 
 ## Examples
@@ -17,7 +19,10 @@ $ docker run -it -v ${PWD}/config.txt:/splatnet2statink/config.txt nu50218/splat
 - upload new salmon records
 
 ```sh
-$ docker run -v ${PWD}/config.txt:/splatnet2statink/config.txt nu50218/splatnet2statink:latest --salmon -r
+$ docker run \
+-v ${PWD}/config.txt:/splatnet2statink/config.txt \
+nu50218/splatnet2statink:latest \
+--salmon -r
 ```
 
 ### Example 2
