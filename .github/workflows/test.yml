@@ -23,4 +23,6 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
+          cache-from: type=registry,ref=user/app:latest
+          cache-to: type=inline
           tags: nu50218/splatnet2statink:latest
