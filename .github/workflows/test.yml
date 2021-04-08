@@ -22,5 +22,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          platform: linux/amd64,linux/arm64/v8,linux/arm/v7
+          platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           tags: nu50218/splatnet2statink:latest
