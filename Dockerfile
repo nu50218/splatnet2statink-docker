@@ -21,4 +21,4 @@ RUN pip install -r requirements.txt
 
 COPY --from=runner-builder /workdir/runner runner
 
-CMD [ "./runner" ]
+ENTRYPOINT [ "./runner" ]
