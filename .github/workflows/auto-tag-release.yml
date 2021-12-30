@@ -44,7 +44,11 @@ jobs:
         name: Remove Same Release If Exists
         run: |
           gh release delete ${{steps.extract-version.outputs.A_VERSION}} || true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - 
         name: Create Release
         run: |
           gh release create ${{steps.extract-version.outputs.A_VERSION}} --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
