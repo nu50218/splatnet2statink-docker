@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Tag:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+      name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+      - 
+      name: Extract Version
+      run: |
+        o=$(cat splatnet2statink/splatnet2statink.py | grep "A_VERSION = ")
+        a_version=$(eval echo ${o#"A_VERSION = "})
+        echo "::set-output name=A_VERSION::${a_version}"
+      id: extract-version
+      - 
+      name: Git Config
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+      - 
+      name: Remove Same Tag If Exists
+      run: |
+        git tag -d ${steps.extract-version.outputs.A_VERSION}
+        git push --delete origin ${steps.extract-version.outputs.A_VERSION}
+      - 
+      name: Push Tag
+      if: always()
+      run: |
+        git tag ${steps.extract-version.outputs.A_VERSION}
+        git push origin ${steps.extract-version.outputs.A_VERSION}
+      
