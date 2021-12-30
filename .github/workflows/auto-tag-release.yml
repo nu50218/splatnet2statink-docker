@@ -38,8 +38,8 @@ jobs:
       - 
         name: Install latest gh
         run: |
-          sudo apt update
-          sudo apt install gh
+          wget https://github.com/cli/cli/releases/download/v2.4.0/gh_2.4.0_linux_amd64.deb
+          sudo apt install ./gh_2.4.0_linux_amd64.deb
       - 
         name: Remove Same Release If Exists
         run: |
