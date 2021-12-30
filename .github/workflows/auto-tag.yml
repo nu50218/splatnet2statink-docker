@@ -1,3 +1,4 @@
+name: "Auto Tagger"
 on:
   push:
     branches:
