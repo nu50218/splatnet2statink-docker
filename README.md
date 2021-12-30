@@ -1,5 +1,7 @@
 # splatnet2statink-docker
 
+[![Push Image](https://github.com/nu50218/splatnet2statink-docker/actions/workflows/push-image.yml/badge.svg)](https://github.com/nu50218/splatnet2statink-docker/pkgs/container/splatnet2statink)
+
 https://github.com/frozenpandaman/splatnet2statink
 
 ## generate config.txt using docker
