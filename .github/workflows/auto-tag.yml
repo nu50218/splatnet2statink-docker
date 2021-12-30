@@ -16,7 +16,7 @@ jobs:
         name: Extract Version
         run: |
           o=$(cat splatnet2statink/splatnet2statink.py | grep "A_VERSION = ")
-          a_version=$(eval echo ${o#"A_VERSION = "})
+          a_version=v$(eval echo ${o#"A_VERSION = "})
           echo "::set-output name=A_VERSION::${a_version}"
         id: extract-version
       - 
@@ -27,8 +27,8 @@ jobs:
       - 
         name: Remove Same Tag If Exists
         run: |
-          git tag -d ${{steps.extract-version.outputs.A_VERSION}}
-          git push --delete origin ${{steps.extract-version.outputs.A_VERSION}}
+          git tag -d ${{steps.extract-version.outputs.A_VERSION}} || true
+          git push --delete origin ${{steps.extract-version.outputs.A_VERSION}} || true
       - 
         name: Push Tag
         if: always()
