@@ -1,11 +1,11 @@
-name: "Auto Tagger"
+name: "Tag and Release"
 on:
   push:
     branches:
       - main
 
 jobs:
-  Tag:
+  TagAndRelease:
     runs-on: ubuntu-latest
     steps:
       -
@@ -35,3 +35,11 @@ jobs:
         run: |
           git tag ${{steps.extract-version.outputs.A_VERSION}}
           git push origin ${{steps.extract-version.outputs.A_VERSION}}
+      - 
+        name: Remove Same Release If Exists
+        run: |
+          gh release delete ${{steps.extract-version.outputs.A_VERSION}} || true
+      - 
+        name: Create Release
+        run: |
+          gh release create ${{steps.extract-version.outputs.A_VERSION}} --generate-notes
