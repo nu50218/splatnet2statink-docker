@@ -32,7 +32,6 @@ jobs:
           git push --delete origin ${{steps.extract-version.outputs.A_VERSION}} || true
       - 
         name: Push Tag
-        if: always()
         run: |
           git tag ${{steps.extract-version.outputs.A_VERSION}}
           git push origin ${{steps.extract-version.outputs.A_VERSION}}
