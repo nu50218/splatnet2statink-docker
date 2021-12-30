@@ -36,6 +36,11 @@ jobs:
           git tag ${{steps.extract-version.outputs.A_VERSION}}
           git push origin ${{steps.extract-version.outputs.A_VERSION}}
       - 
+        name: Install latest gh
+        run: |
+          sudo apt update
+          sudo apt install gh
+      - 
         name: Remove Same Release If Exists
         run: |
           gh release delete ${{steps.extract-version.outputs.A_VERSION}} || true
