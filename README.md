@@ -1,6 +1,8 @@
 # splatnet2statink-docker
 
-[![Push Image](https://github.com/nu50218/splatnet2statink-docker/actions/workflows/push-image.yml/badge.svg)](https://github.com/nu50218/splatnet2statink-docker/pkgs/container/splatnet2statink)
+[![Push Image](https://github.com/nu50218/splatnet2statink-docker/actions/workflows/push-image.yml/badge.svg)](https://github.com/nu50218/splatnet2statink-docker/pkgs/container/splatnet2statink) ← GitHub Container Registry
+
+[![Push Image](https://github.com/nu50218/splatnet2statink-docker/actions/workflows/push-image.yml/badge.svg)](https://hub.docker.com/r/nu50218/splatnet2statink) ← Docker Hub
 
 https://github.com/frozenpandaman/splatnet2statink
 
