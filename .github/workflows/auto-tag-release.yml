@@ -36,11 +36,6 @@ jobs:
           git tag ${{steps.extract-version.outputs.A_VERSION}}
           git push origin ${{steps.extract-version.outputs.A_VERSION}}
       - 
-        name: Install latest gh
-        run: |
-          wget https://github.com/cli/cli/releases/download/v2.4.0/gh_2.4.0_linux_amd64.deb
-          sudo apt install ./gh_2.4.0_linux_amd64.deb
-      - 
         name: Remove Same Release If Exists
         run: |
           gh release delete ${{steps.extract-version.outputs.A_VERSION}} || true
